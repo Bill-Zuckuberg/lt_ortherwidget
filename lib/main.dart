@@ -18,7 +18,7 @@ class _OtherStatefulWidget_State extends State<OtherStatefulWidget> {
   bool? _checkBoxVal = true;
   double _slider1Val = 0.5;
   double _slider2Val = 50.0;
-  int _radioVal = 0;
+  int? _radioVal = 0;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -80,6 +80,34 @@ class _OtherStatefulWidget_State extends State<OtherStatefulWidget> {
               Text(_slider2Val.toStringAsFixed(1))
             ],
           ),
+          const Divider(),
+          const Text('LinearProressIndicator'),
+          const LinearProgressIndicator(
+            color: Colors.green,
+          ),
+          const Divider(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              Text('CircularProressdicator'),
+              CircularProgressIndicator(),
+            ],
+          ),
+          const Divider(),
+          const Text('Radio'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: const [0, 1, 2, 3]
+                .map((index) => Radio<int>(
+                    value: index,
+                    groupValue: _radioVal,
+                    onChanged: (int? val) {
+                      setState(() {
+                        _radioVal = val;
+                      });
+                    }))
+                .toList(),
+          )
         ],
       ),
     );
