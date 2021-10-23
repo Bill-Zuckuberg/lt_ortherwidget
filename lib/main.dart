@@ -48,7 +48,13 @@ class _OtherStatefulWidget_State extends State<OtherStatefulWidget> {
                 setState(() {
                   _checkBoxVal = chkVal;
                 });
-              })
+              }),
+          const Text("Disable-CheckBox"),
+          const Center(
+            child: Checkbox(value: false, onChanged: null),
+          ),
+          const Divider(),
+          const Text("Slider"),
         ],
       ),
     );
