@@ -55,6 +55,31 @@ class _OtherStatefulWidget_State extends State<OtherStatefulWidget> {
           ),
           const Divider(),
           const Text("Slider"),
+          Slider(
+              value: _slider1Val,
+              onChanged: (double val) {
+                setState(() {
+                  _slider1Val = val;
+                });
+              }),
+          const Text('Slider with divistions and label'),
+          Row(
+            children: [
+              Expanded(
+                child: Slider(
+                    label: '${_slider2Val.round()}',
+                    max: 100,
+                    divisions: 5,
+                    value: _slider2Val,
+                    onChanged: (double val) {
+                      setState(() {
+                        _slider2Val = val;
+                      });
+                    }),
+              ),
+              Text(_slider2Val.toStringAsFixed(1))
+            ],
+          ),
         ],
       ),
     );
